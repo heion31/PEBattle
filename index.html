@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEBattle</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap">
+    <link rel="icon" type="image/ico" href="./assets/pokeball-favicon.ico" sizes="16x16">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <audio loop id="battleScreenMusic">
+            <source src="./assets/battle-screen-music.mp3" type="audio/mpeg">
+            The browser is not supporting the audio element
+        </audio>
+        
+        <div class="indicators fadeOut">
+            <div class="trainer-lives">
+                <h2>Trainer Lives</h2>
+                <p>5</p>
+            </div>
+            <div class="game-rounds">
+                <h2>Rounds</h2>
+                <p>0</p>
+            </div>
+            <div class="enemy-lives">
+                <h2>Enemy Lives</h2>
+                <p>5</p>
+            </div>
+        </div>
+
+        <div class="start">
+            <h1>Pokemon Elements Battle</h1>
+            <button></button>
+        </div>
+
+        <div class="battle fadeOut">
+            <div class="trainer-avatar pokemon-img">
+                <img class="trainer-pokemon-img" src="./assets/pokeball.jpg" alt="trainer-pokemon">
+            </div>
+            <div class="choices">
+                <div class="win-message">
+                    <p>Choose your Skill</p>
+                </div>
+                <div class="description-message">
+                    <p>.</p>
+                </div>
+                <div class="element-options">
+                    <button class="water">Water</button>
+                    <button class="fire">Fire</button>
+                    <button class="grass">Grass</button>
+                </div>
+            </div>
+            <div class="enemy-avatar pokemon-img">
+                <img class="enemy-pokemon-img" src="./assets/pokeball.jpg" alt="enemy-pokemon">
+            </div>
+        </div>
+        <div class="resetBtn fadeOut">
+            <button>RESET</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>☀ Build by Heion ☀</p>
+    </footer>
+    <script src="./app.js"></script>
+</body>
+</html>

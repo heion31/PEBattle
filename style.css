@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Macondo Swash Caps',  Arial, sans-serif;
+}
+
+html, body {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+body {
+    background: rgb(237, 237, 237);
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    height: 100vh;
+}
+
+.indicators {
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.game-rounds {
+    width: 40%;
+}
+
+.game-rounds p {
+    font-size: 50px;
+}
+
+.trainer-lives ,
+.enemy-lives {
+    width: 30%;
+}
+
+.trainer-lives p,
+.enemy-lives p {
+    font-size: 25px;
+}
+
+.start {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease;
+}
+
+.start h1 {
+    font-size: 3.2rem;
+    text-decoration: underline;
+    color: rgb(156, 24, 48);
+    text-align: center;
+    margin: 1rem;
+}
+
+.start button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #d61e1e 50%, #ffffff 50%);
+    border: 3px solid #000000;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.start button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+  
+.start button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+  
+.start button:hover,
+.start button:focus {
+    animation: startBtnPulse 1s infinite;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+.battle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.battle img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+}
+
+.trainer-avatar,
+.enemy-avatar {
+    width: 30%;
+}
+
+.trainer-avatar img {
+    transform: rotateY(180deg);
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 3px solid rgb;
+    width: 40%;
+    height: 100%;
+}
+
+.win-message {
+    border: 1px solid gray;
+    width: 60%;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.win-message p {
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+.description-message {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.element-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.element-options button {
+    font-size: 1.2rem;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: rgb(145, 69, 69);
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.element-options button:hover {
+    transform: scale(1.1);
+}
+
+
+.element-options button:nth-child(1) {
+    background: rgb(22, 103, 150);
+}
+
+.element-options button:nth-child(2) {
+    background: rgba(201, 22, 22, 0.808);
+}
+
+.element-options button:nth-child(3) {
+    background: rgb(120, 200, 80);
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.enabled {
+    pointer-events: all;
+}
+
+div.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.resetBtn {
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+}
+
+.resetBtn button {
+    width: 5rem;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: rgb(rgb(150, 42, 42));
+    cursor: pointer;
+    animation: resetBtnPulse 1s infinite alternate;
+}
+
+footer {
+    width: 100vw;
+    position:fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+    border-top: 4px solid #5e5e5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(199, 194, 194);
+}
+
+@keyframes startBtnPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(173, 118, 118, 0.5);
+    }
+  }
+
+@keyframes resetBtnPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .battle img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .win-message p {
+        font-size: 2rem;
+    }
+
+    .description-message p {
+        font-size: 1rem;
+    }
+
+    .element-options button {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .start h1 {
+        font-size: 2.8rem;
+    }
+
+    .battle img {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .win-message p {
+        font-size: 1.6rem;
+    }
+
+    .description-message p {
+        font-size: 0.8rem;
+    }
+
+    .element-options button {
+        font-size: 1rem;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .start h1 {
+        font-size: 2.5rem;
+    }
+
+    .trainer-lives h2,
+    .enemy-lives h2 {
+        font-size: 1.2rem;
+    }
+
+    .trainer-lives p,
+    .enemy-lives p {
+        font-size: 1rem;
+    }
+
+    .game-rounds h2 {
+        font-size: 1.8rem;
+    }
+
+    .game-rounds p {
+        font-size: 1.8rem;
+    }
+
+    .element-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 50%;
+    }
+
+    .element-options button {
+        width: 3rem;
+        height: 2rem;
+        border-radius: 5%;
+        font-size: 0.8rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .start h1 {
+        font-size: 2.2rem;
+    }
+
+    .start button {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .start button::before {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .start button::after {
+        width: 1.3rem;
+        height: 1.3rem
+    }
+
+    .trainer-lives h2,
+    .enemy-lives h2 {
+        font-size: 1rem;
+    }
+
+    .trainer-lives p,
+    .enemy-lives p {
+        font-size: 0.8rem;
+    }
+
+    .game-rounds h2 {
+        font-size: 1.5rem;
+    }
+
+    .game-rounds p {
+        font-size: 1.4rem;
+    }
+
+    .battle img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .win-message p {
+        font-size: 1.4rem;
+    }
+
+    .description-message p {
+        font-size: 0.7rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .start h1 {
+        font-size: 1.6rem;
+    }
+
+    .start button {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .start button::before {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .start button::after {
+        width: 1rem;
+        height: 1rem
+    }
+
+    .trainer-lives h2,
+    .enemy-lives h2 {
+        font-size: 0.8rem;
+    }
+
+    .trainer-lives p,
+    .enemy-lives p {
+        font-size: 0.6rem;
+    }
+
+    .game-rounds h2 {
+        font-size: 1.2rem;
+    }
+
+    .game-rounds p {
+        font-size: 1.1rem;
+    }
+
+    .battle img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .win-message p {
+        font-size: 1rem;
+    }
+
+    .description-message p {
+        font-size: 0.5rem;
+    }
+
+    .element-options button {
+        width: 2.8rem;
+        height: 2rem;
+        border-radius: 5%;
+        font-size: 0.6rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
